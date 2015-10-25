@@ -36,7 +36,7 @@ namespace :deploy do
     run "mkdir -p #{shared_path}/config"
     # if you're using mongoid, create a mongoid.template.yml file and fill it with your production configuration
     # and add your mongoid.yml file to .gitignore
-    put File.read("config/mongoid.template.yml"), "#{shared_path}/config/mongoid.yml"
+    put File.read("config/mongoid.yml"), "#{shared_path}/config/mongoid.yml"
     puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
