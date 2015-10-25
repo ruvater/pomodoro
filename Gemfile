@@ -43,3 +43,5 @@ group :development do
   gem 'spring'
 end
 
+gem 'mongoid', '~> 4'
+gem 'bson_ext'
