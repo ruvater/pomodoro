@@ -43,5 +43,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'unicorn', '~> 4.8.0'
 gem 'mongoid', '~> 4'
 gem 'bson_ext'
