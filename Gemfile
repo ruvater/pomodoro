@@ -46,3 +46,6 @@ end
 gem 'unicorn', '~> 4.8.0'
 gem 'mongoid', '~> 4'
 gem 'bson_ext'
+
+gem 'capistrano', '~> 2.15.4'
+gem 'capistrano-rbenv', '~> 1'
