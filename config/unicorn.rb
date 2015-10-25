@@ -1,4 +1,4 @@
-root = "/home/johnsnow/apps/pomodoro/current"
+root = "/home/shunter/apps/pomodoro/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
