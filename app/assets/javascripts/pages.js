@@ -6,7 +6,7 @@
 
 (function($,window){
 
-  var pageHandlers = {};
+  window.pageHandlers = {};
   var currentPage;
   
   // show the "page" with optional parameter

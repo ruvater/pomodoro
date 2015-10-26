@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def categories
+    @categories = Category.all
   end
 
   def statistics

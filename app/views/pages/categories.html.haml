@@ -1,2 +1,15 @@
-%h1 Pages#categories
-%p Find me in app/views/pages/categories.html.haml
+%h1 Categories
+
+%table
+  - @categories.each do |cat|
+    %tr.super
+      %td{colspan: "3"}= cat.name
+    - cat.subcategories.each do |subcat|
+      %tr
+        %td= subcat.name
+        %td= subcat.background
+        %td= subcat.white_text
+
+
+:javascript
+  app.handler(function() { return categories_handler; });
