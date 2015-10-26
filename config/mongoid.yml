@@ -1,13 +1,7 @@
 development:
-  # Configure available database clients. (required)
   clients:
-    # Defines the default client. (required)
     default:
-      # Defines the name of the default database that Mongoid can connect to.
-      # (required).
       database: pomodoro_development
-      # Provides the hosts the default client can connect to. Must be an array
-      # of host:port pairs. (required)
       hosts:
         - localhost:27017
       options:
@@ -20,12 +14,8 @@ development:
         # (default: primary)
         # read:
         #   mode: :secondary_preferred
-
-        # The name of the user for authentication.
-        # user: 'user'
-
-        # The password of the user for authentication.
-        # password: 'password'
+        user: 'pomodoro'
+        password: '123qwe'
 
         # The user's database roles.
         # roles:
@@ -135,7 +125,7 @@ test:
         max_pool_size: 1
 
 production:
-  sessions:
+  clients:
     default:
       database: pomodoro_production
       hosts:

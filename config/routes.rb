@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
+  get 'categories/show/:id' => 'categories#show'
+  post 'categories/create' => 'categories#create'
+  put 'categories/update/:id' => 'categories#update'
+  delete 'categories/destroy/:id' => 'categories#destroy'
+
   get 'pages/start_work'
-
   get 'pages/categories'
-
   get 'pages/statistics'
-
-  get 'pages/start_work'
-
-  get 'pages/statistics'
-
-  get 'pages/categories'
 
   get 'dashboard/index'
 
