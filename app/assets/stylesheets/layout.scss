@@ -50,7 +50,8 @@
     list-style: none;
     li {
         text-indent: 20px;
-        line-height: 40px;
+        line-height: 60px;
+        font-size: 18px;
         a {
             display: block;
             text-decoration: none;
@@ -68,8 +69,9 @@
     }
     .sidebar-brand {
         height: 65px;
-        font-size: 18px;
+        font-size: 36px;
         line-height: 60px;
+        margin-bottom: 40px;
         a {
             color: #999999;
         }
