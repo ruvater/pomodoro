@@ -18,8 +18,8 @@
       ph.call( $page.length ? $page[0] : null,param ); // call "page" handler
     }
     // activate the page  
-    $(".nav li.active").removeClass("active");
-    $(".nav li a[href=#"+pageName+"]").closest("li").addClass("active");
+    $("#sidebar-wrapper li.active").removeClass("active");
+    $("#sidebar-wrapper li a[href=#"+pageName+"]").closest("li").addClass("active");
     
     $(document.body).attr("page",pageName)
                     .find("section").removeClass("active")
