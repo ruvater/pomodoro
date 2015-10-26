@@ -1,27 +1,25 @@
 categories_handler = function() {
   console.log("Categories!");
 
-  addColorPicker('.colorpicker');
+  addColorPicker($('.background-colorpicker'));
 
+
+  var colors = { black: '000000', red: 'ff0000' };
   function addColorPicker(object) {
     var getHex = function(color) {
-      if (/^[0-9A-F]{3}$/i.test(color)) {
-        return color[0] + color[0] + color[1] + color[1] + color[2] + color[2];
+      return color in Object.keys(colors) ? colors[color] : color;
+    }
+
+    var getColor = function(hex) {
+      for(var key in colors) {
+        if (colors[key] == hex) return key;
       }
-      switch (color) {
-        case 'black':
-            return '000000';
-        case 'red':
-            return 'ff0000';
-            break;
-        default:
-            return color;
-      }
+      return hex;
     }
 
     object.ColorPicker({
       onSubmit: function(hsb, hex, rgb, el) {
-        $(el).val(hex);
+        $(el).val(getColor(hex));
         $(el).ColorPickerHide();
       },
       onBeforeShow: function () {
