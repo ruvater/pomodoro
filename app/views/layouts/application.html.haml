@@ -7,8 +7,6 @@
     = csrf_meta_tags
   %body
     - pages = PagesController.action_methods
-    - pages.each do |page|
-      = page_section page
     #wrapper
       #sidebar-wrapper
         %ul.sidebar-nav
@@ -20,10 +18,9 @@
         - class_close = 'fa-arrow-circle-o-left'
         - class_open = 'fa-arrow-circle-o-right'
         %i.fa.fa-3x#toggle-sidebar{class: class_close}
-        .container-fluid
-          .row
-            .col-lg-12
-              = yield
+        - pages.each do |page|
+          = page_section page
+        -# yield
       :javascript
         window.close_sidebar_icon_class = '#{class_close}'
         window.open_sidebar_icon_class = '#{class_open}'

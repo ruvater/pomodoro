@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'pages/start_work'
+
+  get 'pages/categories'
+
+  get 'pages/statistics'
+
+  get 'pages/start_work'
+
+  get 'pages/statistics'
+
   get 'pages/categories'
 
   get 'dashboard/index'
