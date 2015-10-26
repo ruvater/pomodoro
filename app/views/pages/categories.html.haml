@@ -1,4 +1,4 @@
-%h1 Categories
+%h1#title Categories
 
 %table
   - @categories.each do |cat|
@@ -7,7 +7,7 @@
     - cat.subcategories.each do |subcat|
       %tr
         %td= subcat.name
-        %td= subcat.background
+        %td <input class="background-colorpicker" value="#{subcat.background}"/>
         %td= subcat.white_text
 
 

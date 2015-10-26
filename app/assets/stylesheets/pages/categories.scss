@@ -1,3 +1,19 @@
 table {
   width: 100%;
+  border: 1px solid black;
+  font-size: 25px;
+
+  tr {
+    &.super {
+      background-color: #EAEAEA;
+    }
+
+    td {
+      padding: 10px 12px;
+    }
+
+    &:not(.super) td:first-child {
+      padding-left: 30px;
+    }
+  }
 }
