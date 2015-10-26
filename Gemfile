@@ -42,7 +42,7 @@ group :development do
 end
 
 gem 'unicorn', '~> 4.8.0'
-gem 'mongoid', '~> 4'
+gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
 
 gem 'capistrano', '~> 2.15.4'
