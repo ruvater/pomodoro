@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/categories'
+
   get 'dashboard/index'
 
   devise_for :users

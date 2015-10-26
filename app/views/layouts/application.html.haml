@@ -6,13 +6,15 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    - pages = PagesController.action_methods
+    - pages.each do |page|
+      = page_section page
     #wrapper
       #sidebar-wrapper
         %ul.sidebar-nav
           %li.sidebar-brand= link_to 'Pomodoro', '#'
-          %li= link_to 'Start work', '#'
-          %li= link_to 'Categories', '#'
-          %li= link_to 'Statistics', '#'
+          - pages.each do |page|
+            %li= link_to t('pages.names.'+page), '#'+page
 
       #page-content-wrapper
         - class_close = 'fa-arrow-circle-o-left'
@@ -22,13 +24,6 @@
           .row
             .col-lg-12
               = yield
-
-    :javascript
-      $("#toggle-sidebar").click(function(e) {
-        $("#wrapper").toggleClass("toggled");
-        if ($(this).hasClass('#{ class_close }')) {
-          $(this).removeClass('#{ class_close }').addClass('#{ class_open }');
-        } else {
-          $(this).removeClass('#{ class_open }').addClass('#{ class_close }');
-        }
-      });
+      :javascript
+        window.close_sidebar_icon_class = '#{class_close}'
+        window.open_sidebar_icon_class = '#{class_open}'
