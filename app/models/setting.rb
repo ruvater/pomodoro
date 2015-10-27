@@ -1,6 +1,5 @@
 class Setting
   include Mongoid::Document
-  include Mongoid::Timestamps
 
   COLORS = %w(white black red green blue #3D1255)
   CYCLE_MINUTES = 25

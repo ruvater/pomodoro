@@ -3,6 +3,7 @@ class Subcategory
   include Mongoid::Timestamps
 
   embedded_in :category
+  has_many :periods
 
   validates :name, presence: true
 

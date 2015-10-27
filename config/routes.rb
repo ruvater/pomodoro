@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   put 'subcategories/update/:id' => 'subcategories#update'
   delete 'subcategories/destroy/:id' => 'subcategories#destroy'
 
+  post 'periods/start' => 'periods#start'
+  put 'periods/finish' => 'periods#finish'
+
   get 'pages/start_work'
   get 'pages/categories'
   get 'pages/statistics'
