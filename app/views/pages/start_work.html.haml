@@ -15,18 +15,18 @@
       = f.input :_type, value: f.object._type, as: :hidden
       = f.submit 'Start a cycle', class: 'btn btn-primary'
 
-    = simple_form_for Cycle.new, html: { id: 'finish-cycle-form' }, remote: true, url: '/periods/finish', method: :put do |f|
+    = simple_form_for Cycle.new, html: { id: 'finish-cycle-form', style: 'display: none;' }, remote: true, url: '/periods/finish', method: :put do |f|
       = f.input :results, as: :text
       = f.input :minutes_duration, as: :hidden
       = f.input :_type, value: f.object._type, as: :hidden
       = f.submit 'Finish the cycle', class: 'btn btn-primary'
 
-    = simple_form_for Break.new, html: { id: 'start-break-form' }, remote: true, url: '/periods/start', method: :post do |f|
+    = simple_form_for Break.new, html: { id: 'start-break-form', style: 'display: none;' }, remote: true, url: '/periods/start', method: :post do |f|
       = f.input :is_long, value: f.object.is_long, as: :hidden
       = f.input :_type, value: f.object._type, as: :hidden
       = f.submit 'Start a break', class: 'btn btn-primary'
       
-    = simple_form_for Break.new, html: { id: 'finish-break-form' }, remote: true, url: '/periods/finish', method: :put do |f|
+    = simple_form_for Break.new, html: { id: 'finish-break-form', style: 'display: none;' }, remote: true, url: '/periods/finish', method: :put do |f|
       = f.input :_type, value: f.object._type, as: :hidden
       = f.input :minutes_duration, as: :hidden
       = f.submit 'Finish the break', class: 'btn btn-primary'
@@ -34,4 +34,8 @@
   %table
 
 :javascript
+  window.cycle_minutes = #{@settings.where(key: 'cycle_minutes').first.value};
+  window.short_break_minutes = #{@settings.where(key: 'short_break_minutes').first.value};
+  window.long_break_minutes = #{@settings.where(key:'long_break_minutes').first.value};
+  window.cycles_to_long_break = #{@settings.where(key:'cycles_to_long_break').first.value};
   app.handler(function() { return start_work_handler; });
