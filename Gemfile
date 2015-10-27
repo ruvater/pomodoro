@@ -48,6 +48,7 @@ gem 'bson_ext'
 gem 'capistrano', '~> 2.15.4'
 gem 'capistrano-rbenv', '~> 1'
 
+gem 'typescript-rails'
 gem 'haml-rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
