@@ -31,7 +31,7 @@ class PeriodsController < ApplicationController
     end
 
     def start_period_params
-      params.require(:period).permit(:description,:type,:category_id)
+      params.require(:period).permit(:description,:type,:category_id,:_type,:is_long)
     end
 
     def finish_period_params
