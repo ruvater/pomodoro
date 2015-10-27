@@ -5,8 +5,8 @@ class Period
 
   field :description, type: String
   field :results, type: String
-  field :started_at, type: Date
-  field :finished_at, type: Category
+  field :started_at, type: DateTime
+  field :finished_at, type: DateTime
   field :type, type: String
 
   def self.get_unfinished
