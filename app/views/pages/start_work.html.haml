@@ -9,7 +9,27 @@
       %span :
       %span#timer-second 00
   .col-md-8
-    Categories
+    = simple_form_for Cycle.new, html: { id: 'start-cycle-form' }, remote: true, url: '/periods/start', method: :post do |f|
+      = f.input :description, as: :text
+      = f.input :subcategory_id, collection: Category.all, as: :grouped_select, group_method: :subcategories
+      = f.input :_type, value: f.object._type, as: :hidden
+      = f.submit 'Start a cycle', class: 'btn btn-primary'
+
+    = simple_form_for Cycle.new, html: { id: 'finish-cycle-form' }, remote: true, url: '/periods/finish', method: :put do |f|
+      = f.input :results, as: :text
+      = f.input :minutes_duration, as: :hidden
+      = f.input :_type, value: f.object._type, as: :hidden
+      = f.submit 'Finish the cycle', class: 'btn btn-primary'
+
+    = simple_form_for Break.new, html: { id: 'start-break-form' }, remote: true, url: '/periods/start', method: :post do |f|
+      = f.input :is_long, value: f.object.is_long, as: :hidden
+      = f.input :_type, value: f.object._type, as: :hidden
+      = f.submit 'Start a break', class: 'btn btn-primary'
+      
+    = simple_form_for Break.new, html: { id: 'finish-break-form' }, remote: true, url: '/periods/finish', method: :put do |f|
+      = f.input :_type, value: f.object._type, as: :hidden
+      = f.input :minutes_duration, as: :hidden
+      = f.submit 'Finish the break', class: 'btn btn-primary'
 .row
   %table
 

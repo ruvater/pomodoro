@@ -10,3 +10,15 @@
     letter-spacing: normal;
   }
 }
+#start-cycle-form, #start-break-form, #finish-cycle-form, #finish-break-form {
+  width: 70%;
+  font-size: 25px;
+
+  input.btn {
+    font-size: 20px;
+  }
+
+  input, select, textarea {
+    font-size: 20px;
+  }
+}
