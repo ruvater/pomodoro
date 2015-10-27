@@ -10,7 +10,7 @@ class Timer {
   }
 
   constructor(private options : TimerOptions) {
-
+    this.updateTimerHtml(options.second_length);
   }
 
   updateTimerHtml(total_seconds : number) {
@@ -27,7 +27,6 @@ class Timer {
     this.time_left = this.options.second_length;
     this.updateTimerHtml(this.time_left);
     var self = this;
-    console.time('a');
     this.interval = setInterval(function() { self.check_timer(self) }, 1000);
   }
 
@@ -35,7 +34,6 @@ class Timer {
     scope.time_left--;
     scope.updateTimerHtml(scope.time_left);
     if (scope.time_left == 0) {
-      console.timeEnd('a');
       clearInterval(scope.interval);
       scope.options.onFinish();
     }
