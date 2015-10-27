@@ -6,7 +6,7 @@ class PeriodsController < ApplicationController
 
     respond_to do |format|
       if @period.save
-        format.json { render @period.to_json, status: :created }
+        format.json { render inline: @period.to_json, status: :created }
       else
         format.json { render inline: @period.errors.messages.to_json, status: :unprocessable_entity }
       end
