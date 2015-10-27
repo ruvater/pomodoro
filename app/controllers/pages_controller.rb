@@ -2,6 +2,8 @@ class PagesController < ApplicationController
 
   layout false
 
+  before_filter :settings
+
   def start_work
   end
 
@@ -10,5 +12,11 @@ class PagesController < ApplicationController
   end
 
   def statistics
+  end
+
+  private
+
+  def settings
+    @settings = Setting.all
   end
 end

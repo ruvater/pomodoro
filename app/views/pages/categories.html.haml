@@ -7,9 +7,10 @@
     - cat.subcategories.each do |subcat|
       %tr
         %td= subcat.name
-        %td <input class="background-colorpicker" value="#{subcat.background}"/>
+        %td <div class="colorpicker" data-color="#{subcat.background}"></div>
         %td= subcat.white_text
 
 
 :javascript
+  window.available_colors = "#{ @settings.where(key: 'colors').first.try :value }".split(',');
   app.handler(function() { return categories_handler; });
