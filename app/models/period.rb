@@ -3,11 +3,9 @@ class Period
 
   belongs_to :subcategory
 
-  field :description, type: String
-  field :results, type: String
   field :started_at, type: DateTime
   field :finished_at, type: DateTime
-  field :type, type: String
+  field :minutes_duration, type: Integer
 
   def self.get_unfinished
     self.where(finished_at: nil).order(:started_at).first
