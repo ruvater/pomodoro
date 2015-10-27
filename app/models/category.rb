@@ -2,7 +2,7 @@ class Category
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_many :subcategories
+  has_many :subcategories
 
   validates :name, presence: true
 

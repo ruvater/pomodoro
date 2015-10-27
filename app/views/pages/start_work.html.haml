@@ -29,8 +29,22 @@
       = f.input :_type, value: f.object._type, as: :hidden
       = f.input :minutes_duration, as: :hidden
       = f.submit 'Finish the break', class: 'btn btn-primary'
+
 .row
-  %table
+  %table#cycles
+    %tr.hidden
+      %td #name
+      %td #time
+      %td
+        .category #subcategory
+    - @cycles.each do |c|
+      %tr
+        %td= c.description
+        %td= c.started_time
+        %td
+          .category{style: "background-color:#{c.subcategory.background};", class: c.subcategory.white_text}
+            = c.subcategory.name
+          
 
 :javascript
   window.cycle_minutes = #{@settings.where(key: 'cycle_minutes').first.value};

@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   before_filter :settings
 
   def start_work
+    @cycles = Cycle.all.order_by(finished_at: 'desc').limit(10)
   end
 
   def categories

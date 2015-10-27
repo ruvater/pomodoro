@@ -27,7 +27,7 @@ start_work_handler = function() {
       hour_id: 'timer-hour',
       second_id: 'timer-second',
       onFinish: function() {
-        $('#finish-cycle-form #cycle_minutes_duration').val(length);
+        $('#finish-cycle-form #cycle_minutes_duration').val(window.cycle_minutes);
         $('#finish-cycle-form').show();
       }
     });
@@ -38,6 +38,10 @@ start_work_handler = function() {
     $('#start-break-form #break_is_long').val(++cycle_counter % cycles_to_long_break == 0);
     $('#finish-cycle-form').hide();
     $('#start-break-form').show();
+
+    var html = $('#cycles tr.hidden').get(0).outerHTML;
+    html.replace(/#name/,json.description).replace(/#category/);
+    console.log(json);
   });
 
   startAjaxForm($('#start-break-form'), function(json) {
@@ -49,7 +53,7 @@ start_work_handler = function() {
       hour_id: 'timer-hour',
       second_id: 'timer-second',
       onFinish: function() {
-        $('#finish-break-form #break_minutes_duration').val(length);
+        $('#finish-break-form #break_minutes_duration').val(cycle_counter % cycles_to_long_break == 0 ? long_break_minutes : short_break_minutes);
         $('#finish-break-form').show();
       }
     });
