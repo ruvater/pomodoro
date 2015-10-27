@@ -35,7 +35,7 @@ start_work_handler = function() {
   });
 
   startAjaxForm($('#finish-cycle-form'), function(json) {
-    cycle_counter++;
+    $('#start-break-form #break_is_long').val(++cycle_counter % cycles_to_long_break == 0);
     $('#finish-cycle-form').hide();
     $('#start-break-form').show();
   });

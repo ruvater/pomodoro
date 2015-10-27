@@ -8,6 +8,6 @@ class Period
   field :minutes_duration, type: Integer
 
   def self.get_unfinished
-    self.where(finished_at: nil).order(:started_at).first
+    self.where(finished_at: nil).order_by(started_at: 'asc').first
   end
 end
