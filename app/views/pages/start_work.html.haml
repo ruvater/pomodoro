@@ -1,5 +1,17 @@
-%h1 Pages#start_work
-%p Find me in app/views/pages/start_work.html.haml
+%h1#title Start working
+
+.row
+  .col-md-4
+    #timer
+      %span#timer-hour 00
+      %span :
+      %span#timer-minute 25
+      %span :
+      %span#timer-second 00
+  .col-md-8
+    Categories
+.row
+  %table
 
 :javascript
   app.handler(function() { return start_work_handler; });
