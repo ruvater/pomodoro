@@ -35,15 +35,15 @@
     %tr.hidden
       %td #name
       %td #time
-      %td{style: 'background-color: #background', class: '#white_text'}
-        .category #subcategory
+      %td
+        .category{style: 'background-color: #background;', class: '#white_text'} #subcategory
     - @cycles.each do |c|
       %tr
         %td= c.description
         %td= c.started_time
         %td
-          .category{style: "background-color:#{c.subcategory.background};", class: c.subcategory.white_text}
-            = c.subcategory.name
+          .category{style: "background-color:#{c.subcategory.try :background};", class: c.subcategory.try(:white_text)}
+            = c.subcategory.try :name
           
 
 :javascript

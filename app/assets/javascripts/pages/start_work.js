@@ -39,16 +39,17 @@ start_work_handler = function() {
     $('#finish-cycle-form').hide();
     $('#start-break-form').show();
 
-    var time = Date.parse(json.started_at);
+    var time = new Date(json.started_at);
 
     var html = $('#cycles tr.hidden').get(0).outerHTML;
     html = html.replace(/#name/, json.description);
-    html = html.replace(/#category/, json.category_name);
+    html = html.replace(/#subcategory/, json.category_name);
     html = html.replace(/#background/, json.background);
     html = html.replace(/#white_text/, json.white_text);
     // TODO fix time format to one with rounding
     html = html.replace(/#time/, time.getHours() + ':' + time.getMinutes());
     $('#cycles').prepend(html);
+    $('#cycles tr.hidden').first().removeClass('hidden');
   });
 
   startAjaxForm($('#start-break-form'), function(json) {
