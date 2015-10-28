@@ -18,7 +18,7 @@ class PeriodsController < ApplicationController
     @period.finished_at = Time.now
     respond_to do |format|
       if @period.update(finish_period_params)
-        format.json { render inline: @period.to_json }
+        format.json
       else
         format.json { render inline: @period.errors.messages.to_json, status: :unprocessable_entity }
       end
